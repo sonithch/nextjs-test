@@ -18,17 +18,19 @@ const Home: NextPage = () => {
         </h1>
 
         <p>testing secrets:{process.env.NEXT_PUBLIC_RANDOM_SECRET}</p>
+        <button onClick={() => getMovies()}>Get Movies</button>
       </main>
     </div>
   );
 };
 
-// export async function getServerSideProps(context: GetServerSidePropsContext) {
-//   return {
-//     props: {
-//       secret: process.env.RANDOM_SECRET,
-//     }, // will be passed to the page component as props
-//   };
-// }
+const getMovies = async () => {
+  const headers = {
+    "X-RapidAPI-Key": process.env.NEXT_PUBLIC_RAPID_API_MOVIES_KEY,
+    "X-RapidAPI-Host": "movie-database-alternative.p.rapidapi.com",
+  };
+
+  return "avngers";
+};
 
 export default Home;
